@@ -92,7 +92,7 @@ if ("geolocation" in navigator) {
   );
 } else {
   console.warn("Geolocation not supported, using default city");
-  getPlace("Lahore"); // fallback
+  getPlace("Lhr"); // fallback
 }
 
 async function getPlace(city) {
