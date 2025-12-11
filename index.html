@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Weather app</title>
+  </head>
+
+  <body>
+    <nav class="nav-bar">
+      <p class="app">Weatherly</p>
+    </nav>
+    <h1 class="header">How's the sky looking today?</h1>
+    <input class="place-input" placeholder="Search for a place..." />
+    <button class="search">Search</button>
+    <div class="containerAll">
+      <div class="container">
+        <div class="wrapper">
+          <div class="hero-container">
+            <h5 class="place">Home town</h5>
+            <h5 class="date">Monday,January 1 2025</h5>
+            <span class="grid--2cols">
+              <img src="assets/images/icon-sunny.webp" class="cur-icon" />
+              <h2 class="temp cur-temp">18 C</h2>
+            </span>
+          </div>
+          <div class="back"></div>
+        </div>
+        <section class="others-section">
+          <ul class="others-list grid--2cols">
+            <li class="other feels-like">
+              <span class="other-in">feels-like</span
+              ><span class="other-data other-data-temp">-</span>
+            </li>
+            <li class="other humidity">
+              <span class="other-in">Humidity</span
+              ><span class="other-data other-data-humidity">-</span>
+            </li>
+            <li class="other wind">
+              <span class="other-in">Wind</span
+              ><span class="other-data other-data-wind">-</span>
+            </li>
+            <li class="other percipitation">
+              <span class="other-in">Percipitation</span
+              ><span class="other-data other-data-perci">-</span>
+            </li>
+          </ul>
+        </section>
+        <section class="daily-section">
+          <h4>Daily forecast</h4>
+          <ul class="days">
+            <!--
+          
+        -->
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Mon</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Tue</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Wed</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Thur</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Fri</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Sat</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="day">
+                <div class="day-container">
+                  <h5 class="day-name">Sun</h5>
+                  <img src="assets/images/icon-rain.webp" class="day-img" />
+                  <span class="grid--2cols">
+                    <h6 class="day-temp day-temp-max">18°</h6>
+                    <h6 class="day-temp day-temp-min">18°</h6>
+                  </span>
+                </div>
+              </li>
+            </div>
+          </ul>
+        </section>
+      </div>
+      <section class="hourly-section">
+        <li class="hour">Hourly Forecast</li>
+        <ul class="hourly-list">
+          <!-- 
+          <li class="hour-fore">
+            <img src="assets/images/icon-storm.webp" />
+            <p class="time">2 PM</p>
+            <p class="temperature">20 C</p>
+          </li>
+          -->
+        </ul>
+      </section>
+    </div>
+    <!-- Insert temperature here -->
+    <!--
+    Humidity
+     Insert humidity here -->
+    <!--WindInsert wind here -->
+    <!--Precipitation Insert precipitation here -->
+    <!--Daily forecast Insert daily forecast for the next 7 days here -->
+    <!--Hourly forecast Insert hourly forecast for the selected day here -->
+    <!--  <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>-->
+    <script defer src="script.js"></script>
+  </body>
+</html>
