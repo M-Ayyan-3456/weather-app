@@ -62,38 +62,20 @@ const clearloading = function () {
 };
 
 ////////////////
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(
-    async (pos) => {
-      const lat = pos.coords.latitude;
-      const lon = pos.coords.longitude;
-
-      showLoading();
-      await getWeather(lat, lon);
-      await dailyWeather(lat, lon);
-      clearloading();
-    },
-
-    async (error) => {
-      if (error.code === error.PERMISSION_DENIED) {
-        alert("Please allow location to show your current weather.");
-
-        navigator.geolocation.getCurrentPosition(async (pos2) => {
-          const lat = pos2.coords.latitude;
-          const lon = pos2.coords.longitude;
-          showLoading();
-          await getWeather(lat, lon);
-          await dailyWeather(lat, lon);
-          clearloading();
-        });
-      } else {
-        console.warn("Location error:", error.message);
-      }
-    }
-  );
-} else {
-  alert("Your device does not support location.");
-}
+navigator.geolocation.getCurrentPosition(
+  async (pos) => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+    showLoading();
+    await getWeather(lat, lon);
+    await dailyWeather(lat, lon);
+    clearloading();
+  },
+  () => {
+    console.warn("Location blocked — using default city");
+    getPlace("Home town");
+  }
+);
 
 async function getPlace(city) {
   if (!city) return;
