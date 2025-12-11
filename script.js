@@ -62,14 +62,20 @@ const clearloading = function () {
 };
 
 ////////////////
-navigator.geolocation.getCurrentPosition(async (pos) => {
-  const lat = pos.coords.latitude;
-  const lon = pos.coords.longitude;
-  showLoading();
-  await getWeather(lat, lon);
-  await dailyWeather(lat, lon);
-  clearloading();
-});
+navigator.geolocation.getCurrentPosition(
+  async (pos) => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+    showLoading();
+    await getWeather(lat, lon);
+    await dailyWeather(lat, lon);
+    clearloading();
+  },
+  () => {
+    console.warn("Location blocked — using default city");
+    getPlace("Lahore");
+  }
+);
 
 async function getPlace(city) {
   if (!city) return;
