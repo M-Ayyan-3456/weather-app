@@ -73,7 +73,6 @@ navigator.geolocation.getCurrentPosition(
   },
   () => {
     console.warn("Location blocked — using default city");
-    getPlace("Lahore");
   }
 );
 async function getPlace(city) {
