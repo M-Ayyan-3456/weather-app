@@ -62,19 +62,39 @@ const clearloading = function () {
 };
 
 ////////////////
-navigator.geolocation.getCurrentPosition(
-  async (pos) => {
-    const lat = pos.coords.latitude;
-    const lon = pos.coords.longitude;
-    showLoading();
-    await getWeather(lat, lon);
-    await dailyWeather(lat, lon);
-    clearloading();
-  },
-  () => {
-    console.warn("Location blocked — using default city");
-  }
-);
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Show loading if needed
+      showLoading();
+
+      // Call your weather functions
+      await getWeather(lat, lon);
+      await dailyWeather(lat, lon);
+
+      // Clear loading
+      clearLoading();
+    },
+    (error) => {
+      console.warn(
+        "Location permission denied or unavailable, using default city"
+      );
+      getPlace("Lahore"); // fallback
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    }
+  );
+} else {
+  console.warn("Geolocation not supported, using default city");
+  getPlace("Lahore"); // fallback
+}
+
 async function getPlace(city) {
   if (!city) return;
   const urlPlace = `https://geocoding-api.open-meteo.com/v1/search?name=${city}`;
