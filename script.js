@@ -73,10 +73,9 @@ navigator.geolocation.getCurrentPosition(
   },
   () => {
     console.warn("Location blocked — using default city");
-    getPlace("Home town");
+    getPlace("Lahore");
   }
 );
-
 async function getPlace(city) {
   if (!city) return;
   const urlPlace = `https://geocoding-api.open-meteo.com/v1/search?name=${city}`;
